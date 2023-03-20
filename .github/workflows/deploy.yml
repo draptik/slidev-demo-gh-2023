@@ -22,6 +22,7 @@ jobs:
             slidev build --base /presentation-demo/
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v2
+        run: cd presentation-demo
         with:
           build_dir: dist
         env:

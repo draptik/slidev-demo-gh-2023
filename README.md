@@ -5,8 +5,8 @@
   addition to the [official documentation](https://sli.dev/guide/hosting.html#github-pages), there
   are some extra `cd <subfolder>` instructions in the `run` statements. The `build-dir` assignment is also prepended by the `<subfolder>`.
 
-Once you want to include custom static resources (images, fonts, etc): Have a look at
-- the commented `deploy-custom` job in `.github/workflows/deploy.yml`
+If you want to include custom static resources (images, fonts, etc): Have a look at
+- the commented `deploy-custom` job in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
 - and the project [`presentation-custom`](./presentation-custom).
 
 ## Prerequisites

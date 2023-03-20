@@ -1,4 +1,4 @@
-# Showcase: Publish slidev presentation in subfolder to Github Pages
+# Showcase: Publish slidev presentation from subfolder to Github Pages
 
 - Folder `presentation-demo` contains the default [Slidev](https://sli.dev/) presentation. This is our `<subfolder>`.
 - File [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) contains the github actions for publishing to github pages. In

@@ -9,9 +9,10 @@
 
 Web UI of Github Repo
 
-- Settings -> Pages -> Branch: Choose "gh-pages" branch and "/ (root)" in drop-down menues, and save.
-- Ensure that GH-Actions has the required permissions: Settings -> Actions -> General -> Workflow permissions: Read and Write permissions
-  
+- Settings -> Pages -> Branch: Choose "gh-pages" branch and "/ (root)" in drop-down menus, and save.
+
 ![screenshot1](./screenshot-github-settings1.png)
+
+- Ensure that GH-Actions has the required permissions: Settings -> Actions -> General -> Workflow permissions: Read and **Write** permissions
 
 ![screenshot2](./screenshot-github-settings2.png)

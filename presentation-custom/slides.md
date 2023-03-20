@@ -8,9 +8,13 @@ layout: cover
 
 ![image1.png](/images/screenshot-github-settings1.png)
 
+---
+
 # Referencing static content: images with HTML syntax
 
 <img src="/images/screenshot-github-settings1.png" class="m-40 h-40 rounded shadow" />
+
+---
 
 # Referencing static content: css
 

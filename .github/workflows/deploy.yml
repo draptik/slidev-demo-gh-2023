@@ -44,7 +44,7 @@ jobs:
       - name: Build
         run: |
             cd presentation-custom
-            slidev build --base /slidev-custom-gh-2023
+            slidev build --base /slidev-demo-gh-2023
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v2
         with:

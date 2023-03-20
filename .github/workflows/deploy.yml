@@ -1,32 +1,7 @@
 name: Deploy pages
 on: push
 jobs:
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '14'
-  #     - name: Install dependencies
-  #       run: |
-  #           cd presentation-demo
-  #           npm install
-  #     - name: Install slidev
-  #       run:  |
-  #           cd presentation-demo
-  #           npm i -g @slidev/cli
-  #     - name: Build
-  #       run: |
-  #           cd presentation-demo
-  #           slidev build --base /slidev-demo-gh-2023
-  #     - name: Deploy pages
-  #       uses: crazy-max/ghaction-github-pages@v2
-  #       with:
-  #         build_dir: presentation-demo/dist
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  deploy-custom:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,20 +10,45 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: |
-            cd presentation-custom
+            cd presentation-demo
             npm install
       - name: Install slidev
         run:  |
-            cd presentation-custom
+            cd presentation-demo
             npm i -g @slidev/cli
       - name: Build
         run: |
-            cd presentation-custom
+            cd presentation-demo
             slidev build --base /slidev-demo-gh-2023
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          build_dir: presentation-custom/dist
+          build_dir: presentation-demo/dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # deploy-custom:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14'
+  #     - name: Install dependencies
+  #       run: |
+  #           cd presentation-custom
+  #           npm install
+  #     - name: Install slidev
+  #       run:  |
+  #           cd presentation-custom
+  #           npm i -g @slidev/cli
+  #     - name: Build
+  #       run: |
+  #           cd presentation-custom
+  #           slidev build --base /slidev-demo-gh-2023
+  #     - name: Deploy pages
+  #       uses: crazy-max/ghaction-github-pages@v2
+  #       with:
+  #         build_dir: presentation-custom/dist
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                

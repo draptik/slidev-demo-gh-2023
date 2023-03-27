@@ -1,7 +1,5 @@
 name: Deploy pages
 on: push
-env:
-  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -34,7 +32,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: presentation-demo/dist # The folder the action should deploy.
-          target-folder: ${{ BRANCH_NAME }} 
+          target-folder: ${{ github.head_ref }}
 
   # deploy-custom:
   #   runs-on: ubuntu-latest

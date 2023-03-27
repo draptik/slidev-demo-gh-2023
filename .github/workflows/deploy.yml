@@ -37,4 +37,4 @@ jobs:
         with:
           folder: presentation-demo/dist # The folder the action should deploy
           target-folder: ${{ github.ref_name }} # The target folder within gh-pages
-          single-commit: true # don't overwrite gh-pages branch
+          single-commit: false # don't overwrite gh-pages branch

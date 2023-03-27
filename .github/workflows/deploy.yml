@@ -3,8 +3,6 @@ on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      CURRENT_BRANCH: $GITHUB_REF##*/
     steps:
 
       # - name: Current branch name
@@ -34,11 +32,11 @@ jobs:
       - name: Build
         run: |
             cd presentation-demo
-            slidev build --base /slidev-demo-gh-2023/$CURRENT_BRANCH
+            slidev build --base /slidev-demo-gh-2023/${{ github.ref_name }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: presentation-demo/dist # The folder the action should deploy.
-          target-folder: $CURRENT_BRANCH # The target folder within gh-pages
+          target-folder: ${{ github.ref_name }} # The target folder within gh-pages
           single-commit: true # overwrite gh-pages branch

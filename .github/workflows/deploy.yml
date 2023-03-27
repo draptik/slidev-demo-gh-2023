@@ -13,7 +13,7 @@ jobs:
       #     echo running on branch2 ${{github.ref_name}}
 
       - name: Current branch name
-        run: echo running on branch ${{ CURRENT_BRANCH }}
+        run: echo running on branch $CURRENT_BRANCH
 
       - uses: actions/checkout@v3
 

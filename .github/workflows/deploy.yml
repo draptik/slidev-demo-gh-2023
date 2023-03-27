@@ -1,5 +1,10 @@
 name: Deploy pages
-on: push
+on:
+  push:
+    branches:
+      - demo1
+      - demo2
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

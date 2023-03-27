@@ -4,7 +4,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      CURRENT_BRANCH: ${{ GITHUB_REF##*/ }}
+      CURRENT_BRANCH: ${GITHUB_REF##*/}
     steps:
 
       # - name: Current branch name
@@ -13,7 +13,7 @@ jobs:
       #     echo running on branch2 ${{github.ref_name}}
 
       - name: Current branch name
-        run: echo running on branch $CURRENT_BRANCH
+        run: echo running on branch ${{ CURRENT_BRANCH }}
 
       - uses: actions/checkout@v3
 

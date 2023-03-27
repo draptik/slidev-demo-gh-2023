@@ -21,6 +21,7 @@ jobs:
             cd presentation-demo
             npm i -g @slidev/cli
 
+      # Ensure to set the base directory to the current branch name
       - name: Build
         run: |
             cd presentation-demo
@@ -29,6 +30,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: presentation-demo/dist # The folder the action should deploy.
+          folder: presentation-demo/dist # The folder the action should deploy
           target-folder: ${{ github.ref_name }} # The target folder within gh-pages
           single-commit: false # don't overwrite gh-pages branch

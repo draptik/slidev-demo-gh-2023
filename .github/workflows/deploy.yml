@@ -33,6 +33,7 @@ jobs:
         with:
           folder: presentation-demo/dist # The folder the action should deploy.
           target-folder: demo1
+          single-commit: true
 
   # deploy-custom:
   #   runs-on: ubuntu-latest

@@ -3,13 +3,17 @@ on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      CURRENT_BRANCH: ${GITHUB_REF##*/}
     steps:
 
+      # - name: Current branch name
+      #   run: |
+      #     echo running on branch1 ${GITHUB_REF##*/}
+      #     echo running on branch2 ${{github.ref_name}}
+
       - name: Current branch name
-        run: |
-          echo running on branch1 ${GITHUB_REF##*/}
-          echo running on branch2 ${{github.head_ref}}
-          echo running on branch3 ${{github.ref_name}}
+        run: echo running on branch $CURRENT_BRANCH
 
       - uses: actions/checkout@v3
 
@@ -30,11 +34,11 @@ jobs:
       - name: Build
         run: |
             cd presentation-demo
-            slidev build --base /slidev-demo-gh-2023/${{ github.head_ref }}
+            slidev build --base /slidev-demo-gh-2023/$CURRENT_BRANCH
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: presentation-demo/dist # The folder the action should deploy.
-          target-folder: ${{ github.head_ref }} # The target folder within gh-pages
+          target-folder: $CURRENT_BRANCH # The target folder within gh-pages
           single-commit: true # overwrite gh-pages branch

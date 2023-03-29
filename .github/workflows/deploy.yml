@@ -10,12 +10,11 @@ jobs:
 
     env:
       PRESENTATION_FOLDER: 'presentation-demo'
+      GH_BASE_FOLDER_NAME: 'slidev-demo-gh-2023'
 
     runs-on: ubuntu-latest
-    steps:
 
-      - name: Show environment variables
-        run: echo ${{ env.PRESENTATION_FOLDER }}
+    steps:
 
       - uses: actions/checkout@v3
 
@@ -37,7 +36,7 @@ jobs:
       - name: Build
         run: |
             cd ${{ env.PRESENTATION_FOLDER }}
-            slidev build --base /slidev-demo-gh-2023/${{ github.ref_name }}
+            slidev build --base /${{ env.GH_BASE_FOLDER_NAME }}/${{ github.ref_name }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

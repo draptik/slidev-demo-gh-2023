@@ -4,6 +4,7 @@ on:
     branches:
       - demo1
       - demo2
+      - demo3-remote
 
 jobs:
   deploy:
@@ -11,6 +12,8 @@ jobs:
     env:
       PRESENTATION_FOLDER: 'presentation-demo'
       GH_BASE_FOLDER_NAME: 'slidev-demo-gh-2023'
+      DEMO1_REPO_NAME: 'slidev-demo1'
+      GIT_OWNER: 'draptik'
 
     runs-on: ubuntu-latest
 
@@ -36,19 +39,13 @@ jobs:
       - name: Build
         run: |
             cd ${{ env.PRESENTATION_FOLDER }}
-            slidev build --base '/slidev-demo1'
+            slidev build --base '/${{ env.DEMO1_REPO_NAME }}'
 
-      - name: Deploy 🚀
+      # Requires (1) global account setup with PAT https://stackoverflow.com/a/68781050 and (2) secret setup using that PAT in this repo (`secrets.DEMO1_TOKEN`)
+      - name: Deploy to demo1 repository
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          single-commit: true
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
-          target-folder: ${{ github.ref_name }} # The target folder within gh-pages
-          single-commit: false # don't overwrite gh-pages branch
-
-      # - name: Deploy to slidev-demo1 repository
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     single-commit: true
-      #     folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
-      #     repository-name: 'draptik/slidev-demo1'
-      #     token: ${{ secrets.DEMO1_TOKEN }}
+          repository-name: '${{ env.GIT_OWNER }}/${{ env.DEMO1_REPO_NAME }}'
+          token: ${{ secrets.DEMO1_TOKEN }}

@@ -38,9 +38,16 @@ jobs:
             cd ${{ env.PRESENTATION_FOLDER }}
             slidev build --base /${{ env.GH_BASE_FOLDER_NAME }}/${{ github.ref_name }}
 
-      - name: Deploy 🚀
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
+      #     target-folder: ${{ github.ref_name }} # The target folder within gh-pages
+      #     single-commit: false # don't overwrite gh-pages branch
+
+      - name: Deploy to other repository
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          single-commit: false
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
-          target-folder: ${{ github.ref_name }} # The target folder within gh-pages
-          single-commit: false # don't overwrite gh-pages branch
+          repository-name: 'draptik/slidev-demo1'

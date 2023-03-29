@@ -36,3 +36,9 @@ Result:
 - [demo1 GH Pages](https://draptik.github.io/slidev-demo-gh-2023/demo1/index.html)
 - [demo2 GH Pages](https://draptik.github.io/slidev-demo-gh-2023/demo2/index.html)
 - TODO | only drawback: we need `index.html` at the end, otherwise there will be an URL-redirect to the main page...
+
+## Alternative: Presentation to a different GH Pages repository URL
+
+TODO This is an experiment
+
+

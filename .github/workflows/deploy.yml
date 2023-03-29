@@ -45,12 +45,13 @@ jobs:
       #     target-folder: ${{ github.ref_name }} # The target folder within gh-pages
       #     single-commit: false # don't overwrite gh-pages branch
 
-      - name: Deploy to other repository
+      - name: Deploy to slidev-demo1 repository
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           single-commit: false
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
           repository-name: 'draptik/slidev-demo1'
+          token: ${{ secrets.DEMO1_TOKEN }}
 
 # Current error message from build pipeline:
 #

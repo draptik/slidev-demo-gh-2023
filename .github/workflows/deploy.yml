@@ -52,18 +52,3 @@ jobs:
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
           repository-name: 'draptik/slidev-demo1'
           token: ${{ secrets.DEMO1_TOKEN }}
-
-# First error message from build pipeline:
-#
-# /usr/bin/git push --force ***github.com/draptik/slidev-demo1.git github-pages-deploy-action/tgwd8ug6m:gh-pages
-# remote: Permission to draptik/slidev-demo1.git denied to github-actions[bot].
-# fatal: unable to access 'https://github.com/draptik/slidev-demo1.git/': The requested URL returned error: 403
-#
-#
-# Second attempt, after setting up secrets
-#
-# /usr/bin/git push --force ***github.com/draptik/slidev-demo1.git github-pages-deploy-action/x2b634nnx:gh-pages
-# remote: Support for password authentication was removed on August 13, 2021.
-# remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
-# fatal: Authentication failed for 'https://github.com/draptik/slidev-demo1.git/'
-#

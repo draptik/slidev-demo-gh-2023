@@ -38,17 +38,17 @@ jobs:
             cd ${{ env.PRESENTATION_FOLDER }}
             slidev build --base '/slidev-demo1'
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
-      #     target-folder: ${{ github.ref_name }} # The target folder within gh-pages
-      #     single-commit: false # don't overwrite gh-pages branch
-
-      - name: Deploy to slidev-demo1 repository
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          single-commit: true
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
-          repository-name: 'draptik/slidev-demo1'
-          token: ${{ secrets.DEMO1_TOKEN }}
+          target-folder: ${{ github.ref_name }} # The target folder within gh-pages
+          single-commit: false # don't overwrite gh-pages branch
+
+      # - name: Deploy to slidev-demo1 repository
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     single-commit: true
+      #     folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
+      #     repository-name: 'draptik/slidev-demo1'
+      #     token: ${{ secrets.DEMO1_TOKEN }}

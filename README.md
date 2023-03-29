@@ -20,3 +20,19 @@ Web UI of Github Repo
 - Ensure that GH-Actions has the required permissions: Settings -> Actions -> General -> Workflow permissions: Read and **Write** permissions
 
 ![screenshot2](./screenshot-github-settings2.png)
+
+## Multiple Presentations under a single GH Pages URL
+
+Goal: Multiple, similar slidev presentations with a dedicated URL per presentation.
+
+Example:
+
+- Main git branch: `main`
+- git branch per conference, f.ex. `demo1`, `demo2`
+- Using [GH action: GH Pages Deploy Action](https://github.com/JamesIves/github-pages-deploy-action) (see [.github/workflows/deploy.yml](.github/workflows/deploy.yml))
+
+Result:
+
+- [demo1 GH Pages](https://draptik.github.io/slidev-demo-gh-2023/demo1/index.html)
+- [demo2 GH Pages](https://draptik.github.io/slidev-demo-gh-2023/demo2/index.html)
+- TODO | only drawback: we need `index.html` at the end, otherwise there will be an URL-redirect to the main page...

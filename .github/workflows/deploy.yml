@@ -7,7 +7,13 @@ on:
 
 jobs:
   deploy:
+
+    env:
+      PRESENTATION_FOLDER: 'presentation-demo'
+      GH_BASE_FOLDER_NAME: 'slidev-demo-gh-2023'
+
     runs-on: ubuntu-latest
+
     steps:
 
       - uses: actions/checkout@v3
@@ -18,23 +24,23 @@ jobs:
 
       - name: Install dependencies
         run: |
-            cd presentation-demo
+            cd ${{ env.PRESENTATION_FOLDER }}
             npm install
 
       - name: Install slidev
         run:  |
-            cd presentation-demo
+            cd ${{ env.PRESENTATION_FOLDER }}
             npm i -g @slidev/cli
 
       # Ensure to set the base directory to the current branch name
       - name: Build
         run: |
-            cd presentation-demo
-            slidev build --base /slidev-demo-gh-2023/${{ github.ref_name }}
+            cd ${{ env.PRESENTATION_FOLDER }}
+            slidev build --base /${{ env.GH_BASE_FOLDER_NAME }}/${{ github.ref_name }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: presentation-demo/dist # The folder the action should deploy
+          folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
           target-folder: ${{ github.ref_name }} # The target folder within gh-pages
           single-commit: false # don't overwrite gh-pages branch

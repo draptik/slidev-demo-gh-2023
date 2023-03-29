@@ -25,7 +25,7 @@ transition: slide-left
 css: unocss
 ---
 
-# Welcome to Slidev Demo 2 Wow
+# Welcome to Slidev Demo 2 Wow !!
 
 Presentation slides for developers
 

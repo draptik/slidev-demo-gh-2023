@@ -51,3 +51,10 @@ jobs:
           single-commit: false
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
           repository-name: 'draptik/slidev-demo1'
+
+# Current error message from build pipeline:
+#
+# /usr/bin/git push --force ***github.com/draptik/slidev-demo1.git github-pages-deploy-action/tgwd8ug6m:gh-pages
+# remote: Permission to draptik/slidev-demo1.git denied to github-actions[bot].
+# fatal: unable to access 'https://github.com/draptik/slidev-demo1.git/': The requested URL returned error: 403
+#

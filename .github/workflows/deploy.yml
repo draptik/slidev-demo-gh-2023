@@ -51,6 +51,7 @@ jobs:
           single-commit: true
           folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
           repository-name: 'draptik/slidev-demo1'
+          token: ${{ secrets.DEMO1_TOKEN }}
 
 # First error message from build pipeline:
 #

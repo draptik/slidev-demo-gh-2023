@@ -25,7 +25,7 @@ transition: slide-left
 css: unocss
 ---
 
-# Welcome to Slidev Demo1 !!
+# Welcome to Slidev Demo1 foo
 
 Presentation slides for developers
 

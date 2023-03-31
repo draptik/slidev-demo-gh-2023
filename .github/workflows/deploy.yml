@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: |
             cd ${{ env.PRESENTATION_FOLDER }}
-            slidev build --base '/slidev-demo1'
+            slidev build --base /${{ env.GH_BASE_FOLDER_NAME }}/${{ github.ref_name }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

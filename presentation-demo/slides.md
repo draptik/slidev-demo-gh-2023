@@ -25,7 +25,7 @@ transition: slide-left
 css: unocss
 ---
 
-# Welcome to Slidev Demo3
+# Open Space Demo
 
 Presentation slides for developers
 

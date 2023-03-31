@@ -39,6 +39,24 @@ Result:
 
 ## Alternative: Presentation to a different GH Pages repository URL
 
-TODO This is an experiment
+Goal: 1 branch per conference, 1 dedicated repository per conference. The dedicated repository will only contain the "compiled" slides.
 
+###  Prerequisites: PAT Setup
 
+- PAT: Private Access Token
+- https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+- Github: Personal settings (not repo settings) -> Developer settings -> Personal access tokens -> Tokens (calssic)
+  - Generate new token -> store the generated token!
+- Github: Repository settings -> Secrets and variables -> Actions -> "New repository secret": use the previously stored token and save with a descriptive name (here: "DEMO1_TOKEN"). This name can be referenced in the Github Action (here: `${{ secrets.DEMO1_TOKEN }}`).
+
+### Github Action
+
+```yaml
+- name: Deploy to slidev-demo1 repository
+  uses: JamesIves/github-pages-deploy-action@v4
+  with:
+    single-commit: true
+    folder: ${{ env.PRESENTATION_FOLDER }}/dist # The folder the action should deploy
+    repository-name: 'draptik/slidev-demo1' # the dedicated repository
+    token: ${{ secrets.DEMO1_TOKEN }}
+```
